@@ -13,10 +13,10 @@ const commonCssLoader = [
     loader: 'postcss-loader',
     options: {
       postcssOptions: {
-        plugins: ["postcss-preset-env"],
+        plugins: ['postcss-preset-env'],
       },
-    }
-  }
+    },
+  },
 ];
 
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
           },
           {
             test: /\.less$/,
-            use: [...commonCssLoader, 'less-loader']
+            use: [...commonCssLoader, 'less-loader'],
           },
           {
             test: /\.(jpg|png|gif)$/,
@@ -45,14 +45,14 @@ module.exports = {
               esModule: false,
               name: '[hash:10].[ext]',
               outputPath: 'imgs',
-            }
+            },
           },
           {
             test: /\.html$/,
             loader: 'html-loader',
             options: {
               esModule: false,
-            }
+            },
           },
           {
             exclude: /\.(css|js|less|jpg|png|gif|html)$/,
@@ -60,20 +60,20 @@ module.exports = {
             options: {
               name: '[hash:10].[ext]',
               outputPath: 'media',
-              publicPath: resolve(__dirname, 'build/media')
-            }
-          }
-        ]
-      }
+              publicPath: resolve(__dirname, 'build/media'),
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
       // 对输出的css文件进行重命名
-      filename: 'css/built.css'
+      filename: 'css/built.css',
     }),
   ],
   mode: 'development',
@@ -82,7 +82,7 @@ module.exports = {
     compress: true,
     port: 3000,
     open: true,
-    hot: true
+    hot: true,
   },
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
 };

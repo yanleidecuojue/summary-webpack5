@@ -15,10 +15,10 @@ const commonCssLoader = [
     loader: 'postcss-loader',
     options: {
       postcssOptions: {
-        plugins: ["postcss-preset-env"],
+        plugins: ['postcss-preset-env'],
       },
-    }
-  }
+    },
+  },
 ];
 module.exports = {
   entry: './src/js/index.js',
@@ -73,7 +73,7 @@ module.exports = {
             options: {
               name: '[hash:10].[ext]',
               outputPath: 'media',
-              publicPath: resolve(__dirname, 'build/media')
+              publicPath: resolve(__dirname, 'build/media'),
             },
           },
           /*
@@ -95,47 +95,47 @@ module.exports = {
                   '@babel/preset-env',
                   {
                     // 按需加载
-                    useBuiltIns: "usage",
+                    useBuiltIns: 'usage',
                     // 指定core-js版本
                     corejs: {
                       version: 3,
                     },
                     // 指定兼容性做到哪个版本浏览器
                     targets: {
-                      chrome: "60",
-                      firefox: "60",
-                      ie: "9",
-                      safari: "10",
-                      edge: "17",
+                      chrome: '60',
+                      firefox: '60',
+                      ie: '9',
+                      safari: '10',
+                      edge: '17',
                     },
                   },
                 ],
               ],
-              cacheDirectory: true
+              cacheDirectory: true,
             },
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
       minify: {
         collapseWhitespace: true,
-        removeComments: true
-      }
+        removeComments: true,
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: "css/built[contenthash:10].css",
+      filename: 'css/built[contenthash:10].css',
     }),
     new OptimizeCssAssetsWebpackPlugin(),
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: 'all',
+    },
   },
-  mode: "production",
-  devtool: 'source-map'
+  mode: 'production',
+  devtool: 'source-map',
 };
